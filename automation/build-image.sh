@@ -53,7 +53,7 @@ for arch in $ARCHS; do
 			echo "$checksum" | sha256sum -c -
 			rm -rf tmp
 			mkdir tmp
-			tar -xJvf $rootfs_file -C tmp --strip-components=1
+			tar -xJvf $rootfs_file -C tmp --strip-components=1 --no-xattrs
 			docker import tmp/layer.tar $repo:$suite
 		fi
 
